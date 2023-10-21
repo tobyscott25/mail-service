@@ -1,0 +1,14 @@
+# Start from the official Go image.
+FROM golang:1.21
+
+# Install Air for live reloading.
+RUN go get -u github.com/cosmtrek/air
+
+# Set the working directory in the container.
+WORKDIR /app
+
+# Copy the current directory contents into the container.
+COPY . .
+
+# Command to run the application using Air for hot reloading.
+CMD ["air"]

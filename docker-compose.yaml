@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  mail-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    env_file:
+      - .env.local
+    volumes:
+      - .:/app # Bind mount for live reloading
+    ports:
+      - "8080:8080"
